@@ -126,23 +126,23 @@ void draw_vertical_line(uint8_t x, uint8_t y, uint8_t w, uint8_t color)
 
 void draw_rect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t color)
 {
-  for (uint8_t i = 0; i <= w; i++)
+  for (uint8_t i = 0; i < w; i++)
   {
     draw_pixel(x + i, y, color);
-    draw_pixel(x + i, y + h, color);
+    draw_pixel(x + i, y + h - 1, color);
   }
-  for (uint8_t i = 0; i <= h; i++)
+  for (uint8_t i = 0; i < h; i++)
   {
     draw_pixel(x, y + i, color);
-    draw_pixel(x + w, y + i, color);
+    draw_pixel(x + w - 1, y + i, color);
   }
 }
 
 void fill_rect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t color)
 {
-  for (uint8_t j = 0; j <= h; j++)
+  for (uint8_t j = 0; j < h; j++)
   {
-    for (uint8_t i = 0; i <= w; i++)
+    for (uint8_t i = 0; i < w; i++)
     {
       draw_pixel(x + i, y + j, color);
     }
